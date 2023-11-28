@@ -1,1 +1,1 @@
-../../tessent/s9234_scan.vcd
+../tessent/s9234_scan.vcd
