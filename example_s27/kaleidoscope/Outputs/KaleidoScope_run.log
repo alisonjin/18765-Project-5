@@ -1,0 +1,344 @@
+# 
+# Copyright 2015-2022 Mentor, A Siemens Business 
+# All Rights Reserved. 
+# 
+# THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION 
+# WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS 
+# LICENSORS AND IS SUBJECT TO LICENSE TERMS. 
+# 
+# 
+# Version 2024.1-internal CL-5708550 linux_x86_64  9 Nov 2023
+# 
+# This software expires on: Feb 9, 2024. 
+# 
+ 
+Log created Fri Nov 24 15:22:17 2023 by aqjin on ece006.ece.local.cmu.edu
+System Memory: total: 125.5 GB, available: 64.15 GB
+
+ 
+Command: 
+KaleidoScope \
+	--mode kmanager_single \
+	--vfile ../verilog/s27_scan.v \
+	--clkdef ./Inputs/s27_scan.clks \
+	--alarm ./Inputs/s27_scan.alarms \
+	--fault_list ./Inputs/s27_scan.faults \
+	--top s27_scan \
+	--error_inject_inst TOP.s27_scan \
+	--sim_vcd ./Inputs/s27_scan_vcd.f \
+	--ini parser_messages=true \
+	--ini dft=true 
+
+--------------------------------------------------------------------------------
+OPTION                                  VALUES
+--------------------------------------------------------------------------------
+parser_messages                         true
+dft                                     true
+--------------------------------------------------------------------------------
+Reading Input Options: Verilog Input files: ../verilog/s27_scan.v
+Started reading from file ./Inputs/s27_scan.clks
+Done reading from file ./Inputs/s27_scan.clks
+Started reading from file ./Inputs/s27_scan_vcd.f
+Done reading from file ./Inputs/s27_scan_vcd.f
+Done parsing command line options. Current Mode is kmanager_single
+Process Summary(Start Read RTL): CPU time: 0 s, Total time: 0 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+-- (fusa-VERI-1482) Analyzing Verilog file '../verilog/s27_scan.v'
+Analyze success 1 for File ../verilog/s27_scan.v into lib work 
+** Info: ../verilog/s27_scan.v(7): (fusa-VERI-1018) compiling module 's27_scan'
+** Warning: ../verilog/s27_scan.v(73): (fusa-VERI-1229) module instantiation should have an instance name
+** Info: ../verilog/s27_scan.v(7): (fusa-VERI-1018) compiling module 's27_scan'
+** Info: ../verilog/s27_scan.v(68): (fusa-VERI-1018) compiling module 'scanff'
+** Info: ../verilog/s27_scan.v(33): (fusa-VERI-1018) compiling module 'dff'
+** Warning: ../verilog/s27_scan.v(73): (fusa-VERI-1229) module instantiation should have an instance name
+** Info: ../verilog/s27_scan.v(53): (fusa-VERI-1018) compiling module 'u_mux2'
+Process Summary(End Read RTL): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+** Warning: (fusa-385) Generation of design.bin script is only supported with --filelist and --filelist_sort
+
+** Info: (fusa-109) Top level design found. Design 's27_scan', File '../verilog/s27_scan.v', Line '7'.
+Start reading Error Injection File ./Inputs/s27_scan.faults
+Done reading Error Injection File ./Inputs/s27_scan.faults
+Process Summary(Before Design DB): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Process Summary(After Design DB): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Process Summary(Before flat IDs): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Process Summary(After flat IDs): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Process Summary(Before combo loops): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Finding combinational loops in the design..
+Process Summary(After combo loops): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+The design has 3 registers, 0 latches, and 0 memories.
+Peak memory estimate (GB): 0.0502 + 0.0000 per 1000 faults
+Process Summary(RTL Analysis): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Starting KaleidoScope Run 
+Started reading from file ./Inputs/s27_scan.alarms
+Done reading from file ./Inputs/s27_scan.alarms
+Num of Alarms read = 2
+Finding clocks and resets..
+Finding unused logic in design ..
+There are 0 unused instances and 0 unused nets.
+Use fusaini report_unused_logic = true to report unused logic.
+Process Summary(Before RunFaultInjection): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Mapped 3 inside primitives automatically for VCD.
+Invalid TimeScale of VCD °Î Ignoring it
+TimeScale  TimeScale Multiplier 1
+Process Summary(Before Reading Faultlist): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Fault list file ./Inputs/s27_scan.faults opened for read 
+Processing Port Fault Injection list file ./Inputs/s27_scan.faults
+Done reading from file './Inputs/s27_scan.faults'
+Process Summary(After Reading Faultlist): CPU time: 0.00 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G0 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G1 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G2 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G3 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+Triggered computation for fault net = s27_scan.CK  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 1
+Triggered computation for fault net = s27_scan.SFF_0.CK  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 1
+Triggered computation for fault net = s27_scan.SFF_1.CK  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 1
+Triggered computation for fault net = s27_scan.SFF_2.CK  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 1
+Triggered computation for fault net = s27_scan.CK  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.SFF_0.CK  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.SFF_0.Q  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.SFF_0.Q  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.SFF_1.CK  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.SFF_2.CK  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_1.a0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NOR2_1.a0  Type = SA1  Fault Value = 1 at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G0 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G1 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G2 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G3 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = x)  for fault s27_scan.CK  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = x)  for fault s27_scan.CK  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.G17  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.G17  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = x)  for fault s27_scan.SFF_0.CK  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = x)  for fault s27_scan.SFF_0.CK  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.SFF_0.Q  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = x)  for fault s27_scan.SFF_0.Q  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.SFF_1.D  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.SFF_1.Q  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOT_1.i  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOT_1.i  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.NOT_1.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOT_1.o  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.AND2_0.a1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.AND2_0.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.OR2_0.a1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.OR2_1.a1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_0.a1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_1.a0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = x)  for fault s27_scan.NOR2_1.a0  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.NOR2_1.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_1.o  Type = SA1  Fault Value = 1 at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G0 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G1 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G2 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G3 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = x)  for fault s27_scan.SFF_1.CK  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = x)  for fault s27_scan.SFF_1.CK  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.SFF_1.Q  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.SFF_1.Q  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = x)  for fault s27_scan.SFF_2.CK  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = x)  for fault s27_scan.SFF_2.CK  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.SFF_2.Q  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.SFF_2.Q  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.NOR2_2.a1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.AND2_0.a1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 0)  for fault s27_scan.AND2_0.o  Type = SA1  Fault Value = 1 at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/scan_in at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+Triggered computation for fault net = s27_scan.NOR2_3.a1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.G0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.G0  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.G1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.G1  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.G2  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.G3  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_3.a0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.SFF_0.D  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_2.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_2.o  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.NOR2_2.a0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_2.a0  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.SFF_2.D  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_1.a1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_1.a1  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.NOR2_3.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOT_0.i  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOT_0.i  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.NOT_0.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOT_0.o  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.AND2_0.a0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.AND2_0.a0  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.OR2_0.a0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.OR2_0.a0  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.OR2_0.a1  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.OR2_0.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.OR2_0.o  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.OR2_1.a0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.OR2_1.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NAND2_0.a0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NAND2_0.a1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NAND2_0.a1  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.NAND2_0.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NAND2_0.o  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.NOR2_0.a0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_0.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_3.a1  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.G2  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_3.a0  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.SFF_2.D  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_3.o  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.SFF_2.Q  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.SFF_2.Q  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.NOR2_2.a1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G0 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G1 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G2 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G3 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.SFF_1.D  Type = SA1  Fault Value = 1 at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G0 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G1 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G2 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/G3 at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_0.o  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_0.a1  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.SFF_0.D  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NOR2_0.a0  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.SFF_1.Q  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.OR2_1.o  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.AND2_0.a1  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NAND2_0.a0  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = x)  for fault s27_scan.AND2_0.a1  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = x)  for fault s27_scan.NOR2_2.a1  Type = SA0  Fault Value = 0 at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/scan_in at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+Triggered computation for fault net = s27_scan.G1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_2.a0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/scan_in at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+Triggered computation for fault net = s27_scan.NOR2_3.a1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.OR2_0.a1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.G0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.OR2_0.a0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.OR2_1.a1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.G3  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.OR2_1.a0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_0.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.SFF_0.D  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_2.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_3.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.AND2_0.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.AND2_0.a0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_1.a1  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.SFF_2.D  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_0.a0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.OR2_0.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NAND2_0.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOT_0.i  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+Triggered computation for fault net = s27_scan.NOT_0.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NAND2_0.a1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.OR2_1.a1  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOR2_3.a1  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.G1  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.G3  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.OR2_1.a0  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOR2_2.o  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOR2_3.o  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.OR2_1.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.OR2_1.o  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.SFF_2.D  Type = SA1  Fault Value = 1 at time = 5
+Triggered computation for fault net = s27_scan.NAND2_0.a0  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.NAND2_0.a0  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOR2_2.a0  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NOR2_2.a1  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.G0  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.OR2_0.a0  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.G3  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NAND2_0.a1  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NOT_0.o  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NOR2_0.o  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.SFF_0.D  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NOT_0.i  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NAND2_0.o  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.OR2_0.o  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NOR2_1.a1  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.OR2_1.a0  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.NOR2_0.a0  Type = SA0  Fault Value = 0 at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/scan_in at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+Triggered computation for fault net = s27_scan.G2  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_3.a0  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.G2  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOR2_3.a0  Type = SA0  Fault Value = 0 at time = 5
+** Warning: (fusa-433) Start point has x or z value at non-zero time. Primary input s27_scan/scan_in at time = 5 value z.
+          : Verify the input stimulus file for completeness.
+Triggered computation for fault net = s27_scan.NOT_1.o  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOT_1.o  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.AND2_0.a0  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.NOR2_1.o  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOR2_1.o  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.AND2_0.o  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.NOT_1.i  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOT_1.i  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.G17  Type = SA1  Computed Value = 0  Fault Value = 1  at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.G17  Type = SA1  Fault Value = 1 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.OR2_1.a1  Type = SA0  Fault Value = 0 at time = 5
+Triggered computation for fault net = s27_scan.SFF_1.D  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+Triggered computation for fault net = s27_scan.NOR2_0.a1  Type = SA0  Computed Value = 1  Fault Value = 0  at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 1, faulty value = 0)  for fault s27_scan.SFF_1.D  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.scan_out FIRED (golden value = 0, faulty value = 1)  for fault s27_scan.NOR2_0.a1  Type = SA0  Fault Value = 0 at time = 5
+ALARM s27_scan.G17 FIRED (golden value = x, faulty value = 1)  for fault s27_scan.OR2_0.a1  Type = SA0  Fault Value = 0 at time = 5
+End of simulation at time 5 (No Remaining Faults ). Start printing final results 
+Average of max GF sizes is 7 (17% of 40 flat nets in design); average number of nets with fault values is 11 for 86 faults
+
+-----------------------------------------------------------------------------
+DFT Faults Summary 
+-----------------------------------------------------------------------------
+Total Number of Faults                 :  86
+Detected                               :  74  (86.05%)
+Potential Detected                     :  12  (6.98%, PT credit = 0.5; default)
+Not Detected                           :  0  (0.00%)
+  **  Controlled Observed Internal     :  0
+  **  Reached BlackBox                 :  0
+  **  Missing Simulation Data          :  0
+  **  Controlled Unobserved            :  0
+  **  Uncontrolled Unobserved          :  0
+  **  Constant Fault                   :  0
+  **  Unused Fault                     :  0
+-----------------------------------------------------------------------------
+
+Fault Simulation finished for ../s27_scan.vcd.
+Process Summary(After RunFaultInjection): CPU time: 0.02 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Finished KaleidoScope
+
+Message Summary
+-----------------------------------------------------------------------------
+  Count  Type      Message ID        Summary
+-----------------------------------------------------------------------------
+  2      Warning   fusa-VERI-1229    Verilog parser.
+  5      Info      fusa-VERI-1018    Verilog parser.
+  1      Warning   fusa-385          Generation of design.bin script is only supported with --filelist and --filelist_sort
+  25     Warning   fusa-433          Start point has x or z value at non-zero time.
+  1      Info      fusa-109          Top level design found.
+
+Final Process Statistics: CPU time: 0.02 s, Total time: 0.00 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Run finished on Fri Nov 24 15:22:17 2023
+

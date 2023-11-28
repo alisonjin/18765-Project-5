@@ -1,0 +1,54 @@
+# 
+# Copyright 2015-2022 Mentor, A Siemens Business 
+# All Rights Reserved. 
+# 
+# THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION 
+# WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS 
+# LICENSORS AND IS SUBJECT TO LICENSE TERMS. 
+# 
+# 
+# Version 2024.1-internal CL-5708550 linux_x86_64  9 Nov 2023
+# 
+# This software expires on: Feb 9, 2024. 
+# 
+ 
+Log created Fri Nov 24 15:21:31 2023 by aqjin on ece006.ece.local.cmu.edu
+System Memory: total: 125.5 GB, available: 64.15 GB
+
+ 
+Command: 
+KaleidoScope \
+	--mode kmanager_single \
+	--vfile ../../verilog/s27_scan.v \
+	--clkdef ./Inputs/s27_scan.clks \
+	--alarm ./Inputs/s27_scan.alarms \
+	--fault_list ./Inputs/s27_scan.faults \
+	--top s27_scan \
+	--error_inject_inst TOP.s27_scan \
+	--sim_vcd ./Inputs/s27_scan_vcd.f \
+	--ini parser_messages=true \
+	--ini dft=true 
+
+--------------------------------------------------------------------------------
+OPTION                                  VALUES
+--------------------------------------------------------------------------------
+parser_messages                         true
+dft                                     true
+--------------------------------------------------------------------------------
+Reading Input Options: Verilog Input files: ../../verilog/s27_scan.v
+** Error: (fusa-4) Cannot open file for reading. clkdef: './Inputs/s27_scan.clks'.
+        : Processing will abort.
+** Error: (fusa-4) Cannot open file for reading. Fault list: './Inputs/s27_scan.faults'.
+        : Processing will abort.
+** Error: (fusa-4) Cannot open file for reading. VCD: './Inputs/s27_scan_vcd.f'.
+        : Processing will abort.
+
+Message Summary
+-----------------------------------------------------------------------------
+  Count  Type      Message ID        Summary
+-----------------------------------------------------------------------------
+  3      Error     fusa-4            Cannot open file for reading.
+
+Final Process Statistics: CPU time: 0 s, Total time: 0 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Run finished on Fri Nov 24 15:21:31 2023
+
