@@ -509,7 +509,7 @@ I3699,g950,I2023,I4446,I5783,g2940,I5761,I3972,I7098,I7099,g2780,I3971,
 I5258,I7564,I5648,I5649,I5243,I2683,I7578,I5659,I4184,g3528,g3664,g3656,
 g3647,g1449,g1418,g1879;
 
-  assign scan_out = g59;
+  assign scan_out = g59; 
 
   scanff DFF_0  (g678,CK,g4130, scan_en, scan_in);
   scanff DFF_1  (g332,CK,g6823, scan_en, g678);
