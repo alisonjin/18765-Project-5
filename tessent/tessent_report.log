@@ -1,0 +1,90 @@
+//  Tessent Shell  2023.3    Tue Aug 15 20:24:46 GMT 2023
+//                Unpublished work. Copyright 2023 Siemens
+//
+//      This material contains trade secrets or otherwise confidential 
+//  information owned by Siemens Industry Software Inc. or its affiliates 
+//   (collectively, "SISW"), or its licensors. Access to and use of this 
+//     information is strictly limited as set forth in the Customer's 
+//                   applicable agreements with SISW. 
+//
+//  Siemens software executing under x86-64 Linux on Tue Nov 28 13:09:45 EST 2023.
+//  64 bit version
+//  Host: ece006.ece.local.cmu.edu (128547 MB RAM, 32767 MB Swap)
+//
+//  command: set_context pattern -scan
+//  command: # read the verilog file and define the top-level module
+//  command: read_verilog ../verilog/s9234_comb.v
+//  command: set_current_design s9234_comb
+//  command: # put Tessent into pattern generation mode
+//  command: set_system_mode analysis
+//  Flattening process completed, gates=6097, PIs=247, POs=250, CPU time=0.01 sec.
+//  ---------------------------------------------------------------------------
+//  Begin circuit learning analyses.
+//  --------------------------------
+//  Learning completed, CPU time=0.01 sec.
+//  ---------------------------------------------------------------------------
+//  Begin scan chain identification process, memory elements = 0.
+//  ---------------------------------------------------------------------------
+//  Circuit has no memory elements.
+//  command: # add all stuck-at faults to the design
+//  command: add_faults -all
+//  command: # generate patterns
+//  command: create_patterns 
+// | ------------------------------------------------------------------------------------------------------------------ |
+// |                                             Analyzing the design                                                   |
+// |                                                                                                                    |
+// |      Current clock restriction setting:     Domain_clock (edge interaction)                                        |
+// |                                             (optimal)                                                              |
+// |                                                                                                                    |
+// |            Current abort limit setting:     30                                                                     |
+// |                                Calling:     set_abort_limit 300 100                                                |
+// | ------------------------------------------------------------------------------------------------------------------ |
+// |                                                                                                                    |
+// |               Current sequential depth:     0 (optimal)                                                            |
+// |                                                                                                                    |
+// | ------------------------------------------------------------------------------------------------------------------ |
+//  ------------------------------------------------------------------------
+//  Simulation performed for #gates = 6097  #faults = 28074
+//  system mode = analysis    pattern source = internal patterns
+//  ------------------------------------------------------------------------
+//  #patterns  test      #faults  #faults    # eff.    # test         process      RE/AU/AAB
+//  simulated  coverage  in list  detected   patterns  patterns       CPU time
+//   ---        ------      ---       ---      ---       ---          1.34 sec     332/0/0
+//   64         84.93%     4182     23560       64        64          1.37 sec
+//   ---        ------      ---       ---      ---       ---          1.64 sec     981/0/0
+//   128        94.81%     1406      2127       63       127          1.64 sec
+//   ---        ------      ---       ---      ---       ---          1.81 sec     1576/0/0
+//   141        97.93%      548       263       13       140          1.81 sec
+//   ---        ------      ---       ---      ---       ---          1.82 sec     1576/0/0
+//   205        99.58%      110       438       52       192          1.83 sec
+//   ---        ------      ---       ---      ---       ---          1.83 sec     1576/0/0
+//   225       100.00%        0       110       17       209          1.83 sec
+
+          Statistics Report          
+           Stuck-at Faults           
+-------------------------------------
+Fault Classes              #faults   
+                           (total)   
+---------------------  --------------
+  FU (full)                 28130    
+  -------------------  --------------
+  DS (det_simulation)  26498 (94.20%)
+  TI (tied)               56 ( 0.20%)
+  RE (redundant)        1576 ( 5.60%)
+-------------------------------------
+Coverage                             
+  -------------------                
+  test_coverage              100.00% 
+  fault_coverage              94.20% 
+  atpg_effectiveness         100.00% 
+-------------------------------------
+#test_patterns                   209 
+#simulated_patterns              225 
+CPU_time (secs)                  9.5 
+-------------------------------------
+
+//  command: # write the patterns to a file with ASCII format
+//  command: write_patterns s9234_comb_tests.ascii -replace
+//  command: # write the faults to a file
+//  command: report_faults > s9234_comb.faults
+//  command: exit -d

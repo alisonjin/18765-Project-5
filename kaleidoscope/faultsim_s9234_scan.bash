@@ -1,0 +1,11 @@
+KaleidoScope \
+    --mode kmanager_single \
+    --vfile ../verilog/s9234_scan.v \
+    --clkdef ./Inputs/s9234_scan.clks \
+    --alarm ./Inputs/s9234_scan.alarms \
+    --fault_list ./Inputs/s9234_scan.faults \
+    --top s9234_scan \
+    --error_inject_inst TOP.s9234_scan \
+    --sim_vcd ./Inputs/s9234_scan_vcd.f \
+    --ini parser_messages=true \
+    --ini dft=true
