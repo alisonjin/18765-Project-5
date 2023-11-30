@@ -1,0 +1,11 @@
+=== End of design hierarchy creation ======== 
+Max DESIGN_ID 8166 mem 391968
+Unique_nodes  6476
+GNET_ID 10891 FlatNets 7355
+LeafInstances 7312 Flops 211
+In ports 10741 Out/Inout ports 7312
+netCountInViews 5917 netCountInDesigns 10887
+netTableMemInViews 47432 netTableMemInDesigns 64020 portTableMem 11816
+Number of unique netlist views: 12
+Net table mem is 47624
+  **** Skipping runtime reporting. Option is not enabled.
