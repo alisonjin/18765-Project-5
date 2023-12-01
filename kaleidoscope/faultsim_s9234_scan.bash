@@ -1,5 +1,7 @@
 KaleidoScope \
-    --mode kmanager_single \
+    --mode kmanager_distributed \
+    --kman_parallel 8 \
+    --max_concurrent_fault 5000 \
     --vfile ../verilog/s9234_scan.v \
     --clkdef ./Inputs/s9234_scan.clks \
     --alarm ./Inputs/s9234_scan.alarms \
