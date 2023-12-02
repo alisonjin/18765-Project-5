@@ -3,60 +3,13 @@
 //# 211 D-type flipflops
 //# 3570 inverters
 //# 2027 gates (955 ANDs + 528 NANDs + 431 ORs + 113 NORs)
-primitive dff(q, clock,  data);
-   output q; reg q;
-   input  clock, data;
 
-   table
-      // obtain output on rising edge of clock
-      // clock data q q+
-      (01) 0 : ? : 0 ;
-      (01) 1 : ? : 1 ;
-      (0?) 1 : 1 : 1 ;
-      (0?) 0 : 0 : 0 ;
-      // ignore negative edge of clock
-      F ? : ? : - ;
-      // ignore data changes on steady clock
-      ? (??) : ? : - ;
-
-   endtable
-endprimitive // dff
-
-
-module u_mux2(out, in0, in1, sel);
-   output out;
-   input in0, in1, sel;
-
-   wire  nsel, w1, w0;
-   not NOT0(nsel, sel);
-
-   and AND0(w0, nsel, in0);
-   and AND1(w1, sel, in1);
-
-   or OR0(out, w1, w0);
-endmodule // u_mux2
-
-
-`celldefine
-module scanff(CK, Q, D, SE, SI);
-   input CK, D, SI, SE;
-   output Q;
-   wire   a;
-   dff  (Q, CK, a);
-   u_mux2  (a, D, SI, SE);
-
-endmodule // scanff
-`endcelldefine
-
-
-
-module s9234_scan(CK, scan_in, scan_en, g89,g94,g98,g102,g107,g301,g306,g310,g314,g319,g557,g558,g559,g560,g561,
-  g562,g563,g564,g705,g639,g567,g45,g42,g39,g702,g32,g38,g46,g36,g47,g40,g37,
-  g41,g22,g44,g23,
-  g2584,g3222,g3600,g4307,g4321,g4422,g4809,g5137,g5468,g5469,g5692,g6282,
-  g6284,g6360,g6362,g6364,g6366,g6368,g6370,g6372,g6374,g6728,g1290,g4121,
-  g4108,g4106,g4103,g1293,g4099,g4102,g4109,g4100,g4112,g4105,g4101,g4110,
-  g4104,g4107,g4098, scan_out);
+module s9234_scan(CK, scan_in, scan_en, scan_out, g102,g107,g1290,g1293,g22,g23,g2584,g301,g306,g310,g314,g319,g32,
+  g3222,g36,g3600,g37,g38,g39,g40,g4098,g4099,g41,g4100,g4101,g4102,g4103,
+  g4104,g4105,g4106,g4107,g4108,g4109,g4110,g4112,g4121,g42,g4307,g4321,g44,
+  g4422,g45,g46,g47,g4809,g5137,g5468,g5469,g557,g558,g559,g560,g561,g562,g563,
+  g564,g567,g5692,g6282,g6284,g6360,g6362,g6364,g6366,g6368,g6370,g6372,g6374,
+  g639,g6728,g702,g705,g89,g94,g98);
 input CK, scan_in, scan_en, g89,g94,g98,g102,g107,g301,g306,g310,g314,g319,g557,g558,g559,g560,g561,
   g562,g563,g564,g705,g639,g567,g45,g42,g39,g702,g32,g38,g46,g36,g47,g40,g37,
   g41,g22,g44,g23;
@@ -6357,3 +6310,109 @@ g3647,g1449,g1418,g1879;
   nor NOR2_76(g4591,g4178,g4181);
 
 endmodule
+
+// primitives.v
+// Holds pre-designed primitives
+
+primitive udff_r(q, clock, reset_l, data);
+
+   output q; reg q;
+   input  clock, reset_l, data;
+
+   table
+      // obtain output on rising edge of clock
+      // clock reset_l data q q+
+      (01) 1 0 : ? : 0 ;
+      (01) 1 1 : ? : 1 ;
+      (0?) 1 1 : 1 : 1 ;
+      (0?) 1 0 : 0 : 0 ;
+      // asynchronous reset_l
+      ? 0 ? : ? : 0 ;
+      // ignore rising edge of reset_l
+      ? R ? : ? : - ;
+      // ignore negative edge of clock
+      F 1 ? : ? : - ;
+      // ignore data changes on steady clock
+      ? 1 (??) : ? : - ;
+   endtable
+
+endprimitive // udff_r
+
+
+`timescale 1ns / 1ps
+`celldefine
+module dff_r(q, clock, reset_l, data);
+   input clock, reset_l, data;
+   output q;
+
+   udff_r(q, clock, reset_l, data);
+
+   specify
+      // arc clock --> q
+      (posedge clock => ( q +: data )) = (0.1, 0.1);
+   endspecify
+
+endmodule // dff_r
+`endcelldefine
+
+
+primitive udff(q, clock, data);
+
+   output q; reg q;
+   input  clock, data;
+
+   table
+      // obtain output on rising edge of clock
+      // clock data q q+
+      (01) 0 : ? : 0 ;
+      (01) 1 : ? : 1 ;
+      (0?) 1 : 1 : 1 ;
+      (0?) 0 : 0 : 0 ;
+      // ignore negative edge of clock
+      F ? : ? : - ;
+      // ignore data changes on steady clock
+      ? (??) : ? : - ;
+   endtable
+
+endprimitive // u_dff
+
+
+`timescale 1ns / 1ps
+`celldefine
+module dff(q, clock, data);
+   input clock, data;
+   output q;
+
+   udff(q, clock, data);
+
+   specify
+      // arc clk --> q
+      (posedge clock => ( q +: data )) = (0.1, 0.1);
+   endspecify
+
+endmodule // udff
+`endcelldefine
+
+`celldefine
+module scanff(CK, Q, D, SE, SI);
+   input CK, D, SI, SE;
+   output Q;
+   wire   a;
+   dff  DFF0(Q, CK, a);
+   u_mux2  MUX0(a, D, SI, SE);
+
+endmodule // scanff
+`endcelldefine
+
+module u_mux2(out, in0, in1, sel);
+   output out;
+   input in0, in1, sel;
+
+   wire  nsel, w1, w0;
+   not NOT0(nsel, sel);
+
+   and AND0(w0, nsel, in0);
+   and AND1(w1, sel, in1);
+
+   or OR0(out, w1, w0);
+endmodule // u_mux2
