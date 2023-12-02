@@ -80,6 +80,16 @@ module dff(q, clock, data);
 endmodule // udff
 `endcelldefine
 
+`celldefine
+module scanff(CK, Q, D, SE, SI);
+   input CK, D, SI, SE;
+   output Q;
+   wire   a;
+   dff  DFF0(Q, CK, a);
+   u_mux2  MUX0(a, D, SI, SE);
+
+endmodule // scanff
+`endcelldefine
 
 module u_mux2(out, in0, in1, sel);
    output out;
