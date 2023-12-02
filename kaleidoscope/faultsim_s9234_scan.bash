@@ -2,7 +2,7 @@ KaleidoScope \
     --mode kmanager_distributed \
     --kman_parallel 8 \
     --max_concurrent_fault 5000 \
-    --vfile ../verilog/s9234_scan.v \
+    --vfiles ./Inputs/s9234_scan.vfiles \
     --clkdef ./Inputs/s9234_scan.clks \
     --alarm ./Inputs/s9234_scan.alarms \
     --fault_list ./Inputs/s9234_scan.faults \
