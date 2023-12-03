@@ -12,8 +12,8 @@
 # This software expires on: Feb 9, 2024. 
 # 
  
-Log created Sat Dec  2 12:51:58 2023 by nikhilag on ece031.ece.local.cmu.edu
-System Memory: total: 220 GB, available: 131.3 GB
+Log created Sat Dec  2 20:46:46 2023 by aqjin on ece006.ece.local.cmu.edu
+System Memory: total: 125.5 GB, available: 53.02 GB
 
  
 Command: 
@@ -21,7 +21,7 @@ KaleidoScope \
 	--mode kmanager_distributed \
 	--kman_parallel 8 \
 	--max_concurrent_fault 5000 \
-	--vfile ../verilog/s9234_scan.v \
+	--vfiles ./Inputs/s9234_scan.vfiles \
 	--clkdef ./Inputs/s9234_scan.clks \
 	--alarm ./Inputs/s9234_scan.alarms \
 	--fault_list ./Inputs/s9234_scan.faults \
@@ -37,41 +37,42 @@ OPTION                                  VALUES
 parser_messages                         true
 dft                                     true
 --------------------------------------------------------------------------------
-Reading Input Options: Verilog Input files: ../verilog/s9234_scan.v
+Started reading from file ./Inputs/s9234_scan.vfiles
+Done reading from file ./Inputs/s9234_scan.vfiles
 Started reading from file ./Inputs/s9234_scan.clks
 Done reading from file ./Inputs/s9234_scan.clks
 Started reading from file ./Inputs/s9234_scan_vcd.f
 Done reading from file ./Inputs/s9234_scan_vcd.f
 Done parsing command line options. Current Mode is kmanager_distributed
-Process Summary(Start Read RTL): CPU time: 0.02 s, Total time: 1 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+Process Summary(Start Read RTL): CPU time: 0 s, Total time: 1 s, Memory usage: 0.05 GB, Peak: 0.05 GB
+-- (fusa-VERI-1482) Analyzing Verilog file '../verilog/primitives.v'
+Analyze success 1 for File ../verilog/primitives.v
 -- (fusa-VERI-1482) Analyzing Verilog file '../verilog/s9234_scan.v'
-Analyze success 1 for File ../verilog/s9234_scan.v into lib work 
+Analyze success 1 for File ../verilog/s9234_scan.v
 ** Info: ../verilog/s9234_scan.v(7): (fusa-VERI-1018) compiling module 's9234_scan'
 ** Info: ../verilog/s9234_scan.v(7): (fusa-VERI-1018) compiling module 's9234_scan'
-** Info: ../verilog/s9234_scan.v(6397): (fusa-VERI-1018) compiling module 'scanff'
-** Info: ../verilog/s9234_scan.v(6382): (fusa-VERI-1018) compiling module 'dff'
-** Info: ../verilog/s9234_scan.v(6359): (fusa-VERI-1018) compiling module 'udff'
-** Error: ../verilog/s9234_scan.v(6391): (fusa-VERI-2199) specify block is ignored for synthesis
-** Info: ../verilog/s9234_scan.v(6407): (fusa-VERI-1018) compiling module 'u_mux2'
-Process Summary(End Read RTL): CPU time: 0.23 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
+** Info: ../verilog/primitives.v(87): (fusa-VERI-1018) compiling module 'scanff'
+** Info: ../verilog/primitives.v(67): (fusa-VERI-1018) compiling module 'dff'
+** Info: ../verilog/primitives.v(97): (fusa-VERI-1018) compiling module 'u_mux2'
+Process Summary(End Read RTL): CPU time: 0.08 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
 ** Warning: (fusa-385) Generation of design.bin script is only supported with --filelist and --filelist_sort
 
 ** Info: (fusa-109) Top level design found. Design 's9234_scan', File '../verilog/s9234_scan.v', Line '7'.
 Start reading Error Injection File ./Inputs/s9234_scan.faults
 Done reading Error Injection File ./Inputs/s9234_scan.faults
-Process Summary(Before Design DB): CPU time: 0.37 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
-Process Summary(After Design DB): CPU time: 0.38 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
-Process Summary(Before flat IDs): CPU time: 0.38 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
-Process Summary(After flat IDs): CPU time: 0.39 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
-Process Summary(Before combo loops): CPU time: 0.39 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
+Process Summary(Before Design DB): CPU time: 0.12 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
+Process Summary(After Design DB): CPU time: 0.13 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
+Process Summary(Before flat IDs): CPU time: 0.13 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
+Process Summary(After flat IDs): CPU time: 0.13 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
+Process Summary(Before combo loops): CPU time: 0.13 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
 Finding combinational loops in the design..
-Process Summary(After combo loops): CPU time: 0.40 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
+Process Summary(After combo loops): CPU time: 0.13 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
 The design has 211 registers, 0 latches, and 0 memories.
-Peak memory estimate (GB): 0.0623 + 0.0059 per 1000 faults
-Process Summary(RTL Analysis): CPU time: 0.40 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
+Peak memory estimate (GB): 0.0622 + 0.0060 per 1000 faults
+Process Summary(RTL Analysis): CPU time: 0.14 s, Total time: 1.00 s, Memory usage: 0.06 GB, Peak: 0.06 GB
 Started reading from file ./Inputs/s9234_scan.alarms
 Done reading from file ./Inputs/s9234_scan.alarms
-Num of Alarms read = 40
+Num of Alarms read = 46
 sim_duration_time    = -1
 sim_start_time       = 0
 max_concurrent_fault = 5000
@@ -90,28 +91,28 @@ Number of Safety Faults still being processed = 29922
 
 >> Start of Processing of stimulus file[0] = ../tessent/s9234_scan.vcd (VCD)
 
-Invalid TimeScale of VCD €r~ Ignoring it
+Invalid TimeScale of VCD P‘ Ignoring it
 TimeScale  TimeScale Multiplier 1
-Process Summary(Finished processing VCD header): CPU time: 0.65 s, Total time: 1.00 s, Memory usage: 0.07 GB, Peak: 0.07 GB
+Process Summary(Finished processing VCD header): CPU time: 0.23 s, Total time: 1.00 s, Memory usage: 0.07 GB, Peak: 0.07 GB
 Running Safety Fault Propagation for StartTime = 0. Number of Safety Faults remaining = 29922
   >>> Window[0] = 0 -- 5. VCD in use ../tessent/s9234_scan.vcd
          Fault Propagation for StartTime = 0: Type of Fault = SA1. Number of Faults simulating = 14961
          Fault Propagation for StartTime = 0: Type of Fault = SA0. Number of Faults simulating = 14961
-        Started job with pid 26103 for fault list VCD_run_faults.2.1 with 5000 faults. @ Sat Dec  2 12:52:05 2023
-        Started job with pid 26104 for fault list VCD_run_faults.3.1 with 5000 faults. @ Sat Dec  2 12:52:05 2023
-        Started job with pid 26105 for fault list VCD_run_faults.4.1 with 4961 faults. @ Sat Dec  2 12:52:05 2023
-        Started job with pid 26106 for fault list VCD_run_faults.5.0 with 5000 faults. @ Sat Dec  2 12:52:05 2023
-        Started job with pid 26163 for fault list VCD_run_faults.6.0 with 5000 faults. @ Sat Dec  2 12:52:05 2023
-        Started job with pid 26164 for fault list VCD_run_faults.7.0 with 4961 faults. @ Sat Dec  2 12:52:05 2023
-        Job with pid 26103 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.2.1.log
-        Job with pid 26106 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.5.0.log
-        Job with pid 26163 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.6.0.log
-        Job with pid 26105 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.4.1.log
-        Job with pid 26164 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.7.0.log
-        Job with pid 26104 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.3.1.log
+        Started job with pid 9857 for fault list VCD_run_faults.2.1 with 5000 faults. @ Sat Dec  2 20:46:48 2023
+        Started job with pid 9858 for fault list VCD_run_faults.3.1 with 5000 faults. @ Sat Dec  2 20:46:48 2023
+        Started job with pid 9859 for fault list VCD_run_faults.4.1 with 4961 faults. @ Sat Dec  2 20:46:48 2023
+        Started job with pid 9860 for fault list VCD_run_faults.5.0 with 5000 faults. @ Sat Dec  2 20:46:48 2023
+        Started job with pid 9861 for fault list VCD_run_faults.6.0 with 5000 faults. @ Sat Dec  2 20:46:48 2023
+        Started job with pid 9862 for fault list VCD_run_faults.7.0 with 4961 faults. @ Sat Dec  2 20:46:48 2023
+        Job with pid 9860 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.5.0.log
+        Job with pid 9857 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.2.1.log
+        Job with pid 9861 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.6.0.log
+        Job with pid 9859 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.4.1.log
+        Job with pid 9858 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.3.1.log
+        Job with pid 9862 finished with status 0. Log file: Outputs/kman_logs/VCD_run_faults.7.0.log
     All jobs are finished. Updating the injection list.
-    Process Stats for child jobs: Total CPU: 7442.53 secs Elapsed: 2530.00 secs Peak Memory: 0.51 GB
-		++Peak Child Time: 485.00 secs (Outputs/kman_files/VCD_run_faults.3.1)
+    Process Stats for child jobs: Total CPU: 1090.59 secs Elapsed: 374.00 secs Peak Memory: 0.51 GB
+		++Peak Child Time: 68.00 secs (Outputs/kman_files/VCD_run_faults.3.1)
 Done with fault injection for current window.
 << End of Processing of stimulus file[0] = ../tessent/s9234_scan.vcd (VCD)
 -----------------------------------------------------------
@@ -125,10 +126,10 @@ Safety Fault Propagation Done at Time = 5
 DFT Faults Summary 
 -----------------------------------------------------------------------------
 Total Number of Faults                 :  29922
-Detected                               :  25869  (86.45%)
-Potential Detected                     :  2031  (3.39%, PT credit = 0.5; default)
-Not Detected                           :  2022  (6.76%)
-  **  Controlled Observed Internal     :  365
+Detected                               :  27383  (91.51%)
+Potential Detected                     :  522  (0.87%, PT credit = 0.5; default)
+Not Detected                           :  2017  (6.74%)
+  **  Controlled Observed Internal     :  360
   **  Reached BlackBox                 :  0
   **  Missing Simulation Data          :  0
   **  Controlled Unobserved            :  1619
@@ -142,11 +143,10 @@ Message Summary
 -----------------------------------------------------------------------------
   Count  Type      Message ID        Summary
 -----------------------------------------------------------------------------
-  1      Error     fusa-VERI-2199    Verilog parser.
-  6      Info      fusa-VERI-1018    Verilog parser.
+  5      Info      fusa-VERI-1018    Verilog parser.
   1      Warning   fusa-385          Generation of design.bin script is only supported with --filelist and --filelist_sort
   1      Info      fusa-109          Top level design found.
 
-Final Process Statistics: CPU time: 11.18 s, Total time: 498.00 s, Memory usage: 0.12 GB, Peak: 0.12 GB
-Run finished on Sat Dec  2 13:00:16 2023
+Final Process Statistics: CPU time: 2.31 s, Total time: 74.00 s, Memory usage: 0.12 GB, Peak: 0.12 GB
+Run finished on Sat Dec  2 20:48:00 2023
 
