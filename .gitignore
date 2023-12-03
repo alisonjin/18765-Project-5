@@ -1,2 +1,5 @@
-kaleidoscope/Outputs
+kaleidoscope/Outputs/.stat*
+kaleidoscope/Outputs/Kman*
+kaleidoscope/Outputs/kman_logs
+scripts/__pycache__
 vcs
