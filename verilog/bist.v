@@ -63,13 +63,13 @@ output g2584,g3222,g3600,g4307,g4321,g4422,g4809,g5137,g5468,g5469,g5692,g6282,
   // BIST
   lfsr_tpg tpg(CK, TPG_reset, tpg_out);
 
-  u_mux2 MUX_0(chain1, tpg_out[0], SI_chain1, bist_en);
-  u_mux2 MUX_1(chain2, tpg_out[1], SI_chain2, bist_en);
-  u_mux2 MUX_2(chain3, tpg_out[2], SI_chain3, bist_en);
-  u_mux2 MUX_3(chain4, tpg_out[3], SI_chain4, bist_en);
-  u_mux2 MUX_4(chain5, tpg_out[4], SI_chain5, bist_en);
-  u_mux2 MUX_5(chain6, tpg_out[5], SI_chain6, bist_en);
-  u_mux2 MUX_6(chain7, tpg_out[6], SI_chain7, bist_en);
+  u_mux2 MUX_0(chain1, SI_chain1, tpg_out[0],  bist_en);
+  u_mux2 MUX_1(chain2, SI_chain2, tpg_out[1],  bist_en);
+  u_mux2 MUX_2(chain3, SI_chain3, tpg_out[2],  bist_en);
+  u_mux2 MUX_3(chain4, SI_chain4, tpg_out[3],  bist_en);
+  u_mux2 MUX_4(chain5, SI_chain5, tpg_out[4],  bist_en);
+  u_mux2 MUX_5(chain6, SI_chain6, tpg_out[5],  bist_en);
+  u_mux2 MUX_6(chain7, SI_chain7, tpg_out[6],  bist_en);
 
   // CUT
 //   s9234_scan dft(CK,SI_chain1, SI_chain2, SI_chain3, SI_chain4, SI_chain5, SI_chain6, SI_chain7,scan_en,SO_chain1, SO_chain2, SO_chain3, SO_chain4, SO_chain5, SO_chain6, SO_chain7,PI_g102,PI_g107,g1290,g1293,PI_g22,PI_g23,g2584,PI_g301,PI_g306,PI_g310,PI_g314,PI_g319,PI_g32,g3222,PI_g36,g3600,PI_g37,PI_g38,PI_g39,PI_g40,g4098,g4099,PI_g41,g4100,g4101,g4102,g4103,g4104,g4105,g4106,g4107,g4108,g4109,g4110,g4112,g4121,PI_g42,g4307,g4321,PI_g44,g4422,PI_g45,PI_g46,PI_g47,g4809,g5137,g5468,g5469,PI_g557,PI_g558,PI_g559,PI_g560,PI_g561,PI_g562,PI_g563,PI_g564,PI_g567,g5692,g6282,g6284,g6360,g6362,g6364,g6366,g6368,g6370,g6372,g6374,PI_g639,g6728,PI_g702,PI_g705,PI_g89,PI_g94,PI_g98); 
