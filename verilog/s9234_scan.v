@@ -4,7 +4,7 @@
 //# 3570 inverters
 //# 2027 gates (955 ANDs + 528 NANDs + 431 ORs + 113 NORs)
 
-module s9234_scan(CK, SI_chain1, SI_chain2, SI_chain3, SI_chain4, SI_chain5, SI_chain6, SI_chain7, 
+module s9234_scan_internal(CK, SI_chain1, SI_chain2, SI_chain3, SI_chain4, SI_chain5, SI_chain6, SI_chain7, 
   scan_en, SO_chain1, SO_chain2, SO_chain3, SO_chain4, SO_chain5, SO_chain6, SO_chain7, 
   g102,g107,g1290,g1293,g22,g23,g2584,g301,g306,g310,g314,g319,g32,
   g3222,g36,g3600,g37,g38,g39,g40,g4098,g4099,g41,g4100,g4101,g4102,g4103,

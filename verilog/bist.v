@@ -10,7 +10,7 @@ module lfsr_compactor(
     always @(posedge clk)
     begin
         if (reset)
-            q <= 35'd0;
+            q <= 7'd0;
         else begin
             //x^7 + x^6 + 1
             q <= {q[5] ^ q[6], q[4], q[3], q[2], q[1], q[0], q[6]};
@@ -27,7 +27,7 @@ module lfsr_tpg(
     always @(posedge clk)
     begin
         if (reset)
-            q <= 35'd0;
+            q <= 7'd1;
         else begin
             //x^7 + x^6 + 1
             q <= {q[5] ^ q[6], q[4], q[3], q[2], q[1], q[0], q[6]};
