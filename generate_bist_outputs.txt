@@ -1,0 +1,12 @@
+generate golden outputs
+1. compile combinational file
+    vcs -sverilog s9234_lfsr_sim_tb.v ../verilog/s9234_comb.v 
+
+2. simulate
+    ./simv
+
+generate new etr 
+1. run lfsr_vectors.py  
+    - generates etr patterns to append to existing etr
+
+2. follow other steps in tutorial
