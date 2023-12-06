@@ -7,9 +7,9 @@
 //     information is strictly limited as set forth in the Customer's 
 //                   applicable agreements with SISW. 
 //
-//  Siemens software executing under x86-64 Linux on Tue Nov 28 13:09:45 EST 2023.
+//  Siemens software executing under x86-64 Linux on Wed Dec 06 12:39:18 EST 2023.
 //  64 bit version
-//  Host: ece006.ece.local.cmu.edu (128547 MB RAM, 32767 MB Swap)
+//  Host: ece028.ece.local.cmu.edu (128547 MB RAM, 32767 MB Swap)
 //
 //  command: set_context pattern -scan
 //  command: # read the verilog file and define the top-level module
@@ -17,11 +17,11 @@
 //  command: set_current_design s9234_comb
 //  command: # put Tessent into pattern generation mode
 //  command: set_system_mode analysis
-//  Flattening process completed, gates=6097, PIs=247, POs=250, CPU time=0.01 sec.
+//  Flattening process completed, gates=6097, PIs=247, POs=250, CPU time=0.02 sec.
 //  ---------------------------------------------------------------------------
 //  Begin circuit learning analyses.
 //  --------------------------------
-//  Learning completed, CPU time=0.01 sec.
+//  Learning completed, CPU time=0.02 sec.
 //  ---------------------------------------------------------------------------
 //  Begin scan chain identification process, memory elements = 0.
 //  ---------------------------------------------------------------------------
@@ -49,16 +49,16 @@
 //  ------------------------------------------------------------------------
 //  #patterns  test      #faults  #faults    # eff.    # test         process      RE/AU/AAB
 //  simulated  coverage  in list  detected   patterns  patterns       CPU time
-//   ---        ------      ---       ---      ---       ---          1.34 sec     332/0/0
-//   64         84.93%     4182     23560       64        64          1.37 sec
-//   ---        ------      ---       ---      ---       ---          1.64 sec     981/0/0
-//   128        94.81%     1406      2127       63       127          1.64 sec
-//   ---        ------      ---       ---      ---       ---          1.81 sec     1576/0/0
-//   141        97.93%      548       263       13       140          1.81 sec
-//   ---        ------      ---       ---      ---       ---          1.82 sec     1576/0/0
-//   205        99.58%      110       438       52       192          1.83 sec
-//   ---        ------      ---       ---      ---       ---          1.83 sec     1576/0/0
-//   225       100.00%        0       110       17       209          1.83 sec
+//   ---        ------      ---       ---      ---       ---          1.37 sec     341/0/0
+//   64         85.14%     4122     23611       64        64          1.40 sec
+//   ---        ------      ---       ---      ---       ---          1.73 sec     1014/0/0
+//   128        95.52%     1213      2236       63       127          1.73 sec
+//   ---        ------      ---       ---      ---       ---          1.89 sec     1576/0/0
+//   130        97.80%      583        68        2       129          1.89 sec
+//   ---        ------      ---       ---      ---       ---          1.91 sec     1576/0/0
+//   194        99.37%      166       417       49       178          1.91 sec
+//   ---        ------      ---       ---      ---       ---          1.91 sec     1576/0/0
+//   223       100.00%        0       166       23       201          1.91 sec
 
           Statistics Report          
            Stuck-at Faults           
@@ -78,9 +78,9 @@ Coverage
   fault_coverage              94.20% 
   atpg_effectiveness         100.00% 
 -------------------------------------
-#test_patterns                   209 
-#simulated_patterns              225 
-CPU_time (secs)                  9.5 
+#test_patterns                   201 
+#simulated_patterns              223 
+CPU_time (secs)                 10.2 
 -------------------------------------
 
 //  command: # write the patterns to a file with ASCII format

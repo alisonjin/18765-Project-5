@@ -4,8 +4,8 @@ KaleidoScope \
     --max_concurrent_fault 5000 \
     --vfiles ./Inputs/s9234_scan.vfiles \
     --clkdef ./Inputs/s9234_scan.clks \
-    --alarm ./Inputs/s9234_scan.alarms \
-    --fault_list ./Inputs/s9234_scan.faults \
+    --alarm ./Inputs/bist.alarms \
+    --fault_list ./Inputs/bist.faults \
     --top s9234_scan \
     --error_inject_inst TOP.s9234_scan \
     --sim_vcd ./Inputs/s9234_scan_vcd.f \
