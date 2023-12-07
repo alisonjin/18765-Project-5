@@ -8,6 +8,6 @@ KaleidoScope \
     --fault_list ./Inputs/bist.faults \
     --top s9234_scan \
     --error_inject_inst TOP.s9234_scan \
-    --sim_vcd ./Inputs/s9234_scan_vcd.f \
+    --sim_vcd ./Inputs/s9234_scan_vcd_bist.f \
     --ini parser_messages=true \
     --ini dft=true
