@@ -98,6 +98,7 @@ endmodule // scanff
 module bscanff(CK, a, D, SE, SI);
    input CK, D, SI, SE;
    output a;
+   // output Q;
    dff  DFF0(Q, CK, SI);
    u_mux2  MUX0(a, D, Q, SE);
 

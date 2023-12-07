@@ -1,2 +1,3 @@
 ../verilog/primitives.v
 ../verilog/s9234_scan.v
+../verilog/s9234_scan_b.v
