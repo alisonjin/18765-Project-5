@@ -1,38 +1,50 @@
 // LFSR TPG and LFSR signature analysis
 // LFSR taps: https://docs.xilinx.com/v/u/en-US/xapp052
 
-module lfsr_compactor(
-    input clk,
-    input reset,    // Active-high synchronous reset to 5'h0
-    output reg [6:0] q
-); 
+// module lfsr_compactor(
+//     input clk,
+//     input reset,    // Active-high synchronous reset to 5'h0
+//     output reg [6:0] q
+// ); 
 
-    always @(posedge clk)
-    begin
-        if (reset)
-            q <= 7'd0;
-        else begin
-            //x^7 + x^6 + 1
-            q <= {q[5] ^ q[6], q[4], q[3], q[2], q[1], q[0], q[6]};
-        end
-    end
-endmodule
+//     always @(posedge clk)
+//     begin
+//         if (reset)
+//             q <= 7'd0;
+//         else begin
+//             //x^7 + x^6 + 1
+//             q <= {q[5] ^ q[6], q[4], q[3], q[2], q[1], q[0], q[6]};
+//         end
+//     end
+// endmodule
 
 module lfsr_tpg(
     input clk,
     input reset,    // Active-high synchronous reset to 5'h1
-    output reg [6:0] q
+    input feedback,
+    output [6:0] q
 ); 
-
-    always @(posedge clk)
-    begin
-        if (reset)
-            q <= 7'd1;
-        else begin
-            //x^7 + x^6 + 1
-            q <= {q[5] ^ q[6], q[4], q[3], q[2], q[1], q[0], q[6]};
-        end
-    end
+    wire[6:0] q_internal;
+    wire q6_in;
+    
+    dff q0(q_internal[0], clk, feedback);
+    dff q1(q_internal[1], clk, q_internal[0]);
+    dff q2(q_internal[2], clk, q_internal[1]);
+    dff q3(q_internal[3], clk, q_internal[2]);
+    dff q4(q_internal[4], clk, q_internal[3]);
+    dff q5(q_internal[5], clk, q_internal[4]);
+    xor tap(q6_in, feedback, q_internal[5]);
+    dff q6(q_internal[6], clk, q6_in);
+    u_mux2 out(q, q_internal, 7'd1, reset);
+    // always @(posedge clk)
+    // begin
+    //     if (reset)
+    //         q <= 7'd1;
+    //     else begin
+    //         //x^7 + x^6 + 1
+    //         q <= {q[5] ^ q[6], q[4], q[3], q[2], q[1], q[0], q[6]};
+    //     end
+    // end
 endmodule
 
 module s9234_scan(CK,  
@@ -61,7 +73,7 @@ output g2584,g3222,g3600,g4307,g4321,g4422,g4809,g5137,g5468,g5469,g5692,g6282,
   wire chain1, chain2, chain3, chain4, chain5, chain6, chain7;
 
   // BIST
-  lfsr_tpg tpg(CK, TPG_reset, tpg_out);
+  lfsr_tpg tpg(CK, TPG_reset, tpg_out[6], tpg_out);
 
   u_mux2 MUX_0(chain1, SI_chain1, tpg_out[0],  bist_en);
   u_mux2 MUX_1(chain2, SI_chain2, tpg_out[1],  bist_en);

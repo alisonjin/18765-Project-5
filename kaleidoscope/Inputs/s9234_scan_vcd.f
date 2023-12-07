@@ -1,1 +1,1 @@
-../tessent/s9234_scan_bist_only.vcd
+../tessent/s9234_scan.vcd
