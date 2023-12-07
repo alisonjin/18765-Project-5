@@ -25,6 +25,54 @@ primitive udff_r(q, clock, reset_l, data);
 
 endprimitive // udff_r
 
+primitive udff_r1(q, clock, reset_l, data);
+
+   output q; reg q;
+   input  clock, reset_l, data;
+
+   table
+      // obtain output on rising edge of clock
+      // clock reset_l data q q+
+      (01) 0 0 : ? : 0 ;
+      (01) 0 1 : ? : 1 ;
+      (0?) 0 1 : 1 : 1 ;
+      (0?) 0 0 : 0 : 0 ;
+      // asynchronous reset_l
+      ? 1 ? : ? : 1 ;
+      // ignore rising edge of reset_l
+      ? R ? : ? : - ;
+      // ignore negative edge of clock
+      F 0 ? : ? : - ;
+      // ignore data changes on steady clock
+      ? 0 (??) : ? : - ;
+   endtable
+
+endprimitive // udff_r
+
+primitive udff_r0(q, clock, reset_l, data);
+
+   output q; reg q;
+   input  clock, reset_l, data;
+
+   table
+      // obtain output on rising edge of clock
+      // clock reset_l data q q+
+      (01) 0 0 : ? : 0 ;
+      (01) 0 1 : ? : 1 ;
+      (0?) 0 1 : 1 : 1 ;
+      (0?) 0 0 : 0 : 0 ;
+      // asynchronous reset_l
+      ? 1 ? : ? : 0 ;
+      // ignore rising edge of reset_l
+      ? R ? : ? : - ;
+      // ignore negative edge of clock
+      F 0 ? : ? : - ;
+      // ignore data changes on steady clock
+      ? 0 (??) : ? : - ;
+   endtable
+
+endprimitive // udff_r
+
 
 `timescale 1ns / 1ps
 `celldefine
