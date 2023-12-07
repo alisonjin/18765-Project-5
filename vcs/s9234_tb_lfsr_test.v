@@ -59,6 +59,7 @@ module nm_testbench();
       SI_chain6 = 0;
       SI_chain7 = 0;
       CK=0;
+      $fwrite(f, "%b\n", tpg_out);
       #5
       CK=1;
       #20;
