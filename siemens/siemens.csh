@@ -8,4 +8,5 @@ setenv MGLS_LICENSE_FILE ${LM_LICENSE_FILE}
 setenv SALT_LICENSE_SERVER="29000@siemens-lic.ece.local.cmu.edu;1717@siemens-lic.ece.local.cmu.edu"
 set TESSENT="/afs/ece.cmu.edu/support/mgc/mgc.release/tessent_2023_3"
 set AUSTEMPER="/afs/ece.cmu.edu/support/mgc/mgc.release/austemper_2023_tmp"
-setenv PATH "${PATH}:${TESSENT}/bin:${AUSTEMPER}/linux_x86_64/bin"
+set FLEXTEST="/afs/ece.cmu.edu/support/mgc/mgc.release/tessent_2022_1"
+setenv PATH "${PATH}:${TESSENT}/bin:${AUSTEMPER}/linux_x86_64/bin:${FLEXTEST}/bin"
