@@ -22,7 +22,7 @@ def main():
         chain7 = ''
 
         for i in range(31):
-            # print(int(q, 2))
+            # print(q, end='\t')
             chain1 += q[6]
             chain2 += q[5]
             chain3 += q[4]
@@ -109,7 +109,7 @@ def main():
 
     with open("lfsr_etr.txt", "w") as f:
         for i, output in enumerate(outputs):
-            f.write("%-3d: %s %s\n" % (i + 1 + 201, dont_care_input, output))
+            f.write("%-3d: %s %s\n" % (i + 1 + 201, dont_care_input[:36] + inputs[i], output))
         
 
 if __name__ == "__main__":
