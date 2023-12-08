@@ -40,7 +40,7 @@ primitive udff_r1(q, clock, reset_l, data);
       // asynchronous reset_l
       ? 1 ? : ? : 1 ;
       // ignore rising edge of reset_l
-      ? R ? : ? : - ;
+      ? F ? : ? : - ;
       // ignore negative edge of clock
       F 0 ? : ? : - ;
       // ignore data changes on steady clock
@@ -64,7 +64,7 @@ primitive udff_r0(q, clock, reset_l, data);
       // asynchronous reset_l
       ? 1 ? : ? : 0 ;
       // ignore rising edge of reset_l
-      ? R ? : ? : - ;
+      ? F ? : ? : - ;
       // ignore negative edge of clock
       F 0 ? : ? : - ;
       // ignore data changes on steady clock

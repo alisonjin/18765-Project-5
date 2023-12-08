@@ -63,12 +63,9 @@ module nm_testbench();
       #5
       CK=1;
       #20;
-      TPG_reset=0;
-      $fwrite(f, "%b\n", tpg_out);
-
       for (i=0; i<100000; i=i+1) begin
          #5 CK=0;
-         
+         TPG_reset=0;
         //  #5 RAND={$random,$random};
          #5 CK=1;
          $fwrite(f, "%b\n", tpg_out);
