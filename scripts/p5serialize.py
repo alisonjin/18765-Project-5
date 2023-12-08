@@ -231,15 +231,16 @@ def findveclen(innames, outnames, scanchains, scanpairdict):
     veclen = 0
     for chain in scanchains:
         inlen = 0
-        outlen = len(scanchains[chain])
+        outlen = 0#len(scanchains[chain])
         for i in scanchains[chain]:
             if i in innames or i in scanpairdict.values():
                 inlen = max(inlen, scanchains[chain].index(i)+1)
             if i in outnames:
                 outlen = min(outlen, scanchains[chain].index(i))
-
+            print(inlen, outlen)
         #finds length of deepest input/output
         veclen = max(veclen, inlen, len(scanchains[chain]) - outlen)
+        print("done", veclen)
 
     return veclen
 
