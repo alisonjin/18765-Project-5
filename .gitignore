@@ -1,5 +1,6 @@
 kaleidoscope/Outputs/.stat*
 kaleidoscope/Outputs/Kman*
 kaleidoscope/Outputs/kman_logs
+kaleidoscope/Outputs/*rpt
 scripts/__pycache__
 vcs
