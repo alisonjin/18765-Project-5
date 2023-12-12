@@ -1,49 +1,51 @@
 // LFSR TPG and LFSR signature analysis
 // LFSR taps: https://docs.xilinx.com/v/u/en-US/xapp052
 
-// module lfsr_compactor(
-//     input clk,
-//     input reset,    // Active-high synchronous reset to 5'h0
-//     output reg [6:0] q
-// ); 
+module lfsr_compactor(
+    input clk,
+    input reset,    // Active-high synchronous reset to 5'h0
+    input [6:0] scan_outs,
+    output reg [6:0] q
+); 
 
-//     always @(posedge clk)
-//     begin
-//         if (reset)
-//             q <= 7'd0;
-//         else begin
-//             //x^7 + x^6 + 1
-//             q <= {q[5] ^ q[6], q[4], q[3], q[2], q[1], q[0], q[6]};
-//         end
-//     end
-// endmodule
+    wire xor0, xor1, xor2, xor3, xor4, xor5, xor6;
+
+    xor XOR0(xor0, scan_outs[0], q[6]);
+    xor XOR1(xor1, scan_outs[1], q[0]);
+    xor XOR2(xor2, scan_outs[2], q[1]);
+    xor XOR3(xor3, scan_outs[3], q[2]);
+    xor XOR4(xor4, scan_outs[4], q[3]);
+    xor XOR5(xor5, scan_outs[5], q[4]);
+    xor XOR6(xor6, scan_outs[6], q[5]);
+
+    udff_r0 q0(q[0], clk, reset, xor0);
+    udff_r0 q1(q[1], clk, reset, xor1);
+    udff_r0 q2(q[2], clk, reset, xor2);
+    udff_r0 q3(q[3], clk, reset, xor3);
+    udff_r0 q4(q[4], clk, reset, xor4);
+    udff_r0 q5(q[5], clk, reset, xor5);
+    udff_r0 q6(q[6], clk, reset, xor6);
+endmodule
 
 module lfsr_tpg(
     input clk,
+    input bist_en,
     input reset,    // Active-high synchronous reset to 5'h1
     output [6:0] q
 ); 
-    // wire[6:0] q;
     wire xor_result;
+    wire gated_clk;
 
-    udff_r1 q0(q[0], clk, reset, q[6]);
-    udff_r0 q1(q[1], clk, reset, q[0]);
-    udff_r0 q2(q[2], clk, reset, q[1]);
-    udff_r0 q3(q[3], clk, reset, q[2]);
-    udff_r0 q4(q[4], clk, reset, q[3]);
-    udff_r0 q5(q[5], clk, reset, q[4]);
+    assign gated_clk = bist_en & clk;
+
+    udff_r1 q0(q[0], gated_clk, reset, q[6]);
+    udff_r0 q1(q[1], gated_clk, reset, q[0]);
+    udff_r0 q2(q[2], gated_clk, reset, q[1]);
+    udff_r0 q3(q[3], gated_clk, reset, q[2]);
+    udff_r0 q4(q[4], gated_clk, reset, q[3]);
+    udff_r0 q5(q[5], gated_clk, reset, q[4]);
     xor tap(xor_result, q[6], q[5]);
-    udff_r0 q6(q[6], clk, reset, xor_result);
-    
-    // always @(posedge clk)
-    // begin
-    //     if (reset)
-    //         q <= 7'd1;
-    //     else begin
-    //         //x^7 + x^6 + 1
-    //         q <= {q[5] ^ q[6], q[4], q[3], q[2], q[1], q[0], q[6]};
-    //     end
-    // end
+    udff_r0 q6(q[6], gated_clk, reset, xor_result);
 endmodule
 
 module s9234_scan(CK,  
@@ -73,7 +75,7 @@ output [6:0] tpg_out;
   wire chain1, chain2, chain3, chain4, chain5, chain6, chain7;
 
   // BIST
-  lfsr_tpg tpg(CK, TPG_reset, tpg_out);
+  lfsr_tpg tpg(CK, bist_en, TPG_reset, tpg_out);
 
   u_mux2 MUX_0(chain1, SI_chain1, tpg_out[0],  bist_en);
   u_mux2 MUX_1(chain2, SI_chain2, tpg_out[1],  bist_en);

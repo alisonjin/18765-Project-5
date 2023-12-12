@@ -63,13 +63,20 @@ module nm_testbench();
       #5
       CK=1;
       #20;
-      for (i=0; i<100000; i=i+1) begin
+      for (i=0; i<100; i=i+1) begin
          #5 CK=0;
          TPG_reset=0;
-        //  #5 RAND={$random,$random};
          #5 CK=1;
          $fwrite(f, "%b\n", tpg_out);
-         // $fwrite(f, "%t\t%b\t%b\t%b\t%b\n", $time, RAND, NOM_OUT^TEST_OUT, NOM_OUT, TEST_OUT);
+      end
+
+      bist_en =0;
+      #5
+
+      for (i=0; i<28; i=i+1) begin
+         #5 CK=0;
+         #5 CK=1;
+         $fwrite(f, "%b\n", tpg_out);
       end
 
       $fclose(f);
