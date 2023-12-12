@@ -5,10 +5,10 @@ setup pin strobes 1
 
 set system mode fault
 
-set pattern source external s9234_scan.ascii
+set pattern source external ../tessent/s9234_scan.ascii
 
 set hypertrophic limit off
-load faults s9234.faults
+load faults s9234_bist.faults
 
 run
 
