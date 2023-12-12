@@ -42,7 +42,7 @@ ADD_VECTORS_BEFORE_IO: 0
 
 ** How many filler vectors should print at the end of each cycle?
 ** Use digit, or leave blank if no added vectors are desired
-END_OF_CYCLE_VECTORS: 0
+END_OF_CYCLE_VECTORS: 1
 
 
 ** User defines scan chains to produce corresponding serialized output
