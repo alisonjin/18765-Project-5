@@ -142,6 +142,17 @@ module scanff(CK, Q, D, SE, SI);
 endmodule // scanff
 `endcelldefine
 
+`celldefine
+module bscanff(CK, a, D, SE, SI);
+   input CK, D, SI, SE;
+   output a;
+   // output Q;
+   dff  DFF0(Q, CK, SI);
+   u_mux2  MUX0(a, D, Q, SE);
+
+endmodule // scanff
+`endcelldefine
+
 module u_mux2(out, in0, in1, sel);
    output out;
    input in0, in1, sel;
